@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fun Sticky Task Board</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <!-- Google Fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Roboto:wght@400;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Sticky Task Board</h1>
+      <p>Increase your productivity!</p>
+    </header>
+
+    <section class="new-task-section">
+      <h2>Let's Add a Task!</h2>
+      <form id="new-task-form">
+        <input type="text" name="task_name" placeholder="What's the task?" required>
+        <input type="datetime-local" name="deadline" required>
+        <button type="submit">Add It!</button>
+      </form>
+    </section>
+
+    <div class="board">
+      <div class="tasks-list">
+   
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>

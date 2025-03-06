@@ -1,0 +1,277 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body & Wrapper */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #fef9c3, #fffde7);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Header Styling */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 3.5rem;
+  color: #d32f2f;
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+  animation: bounceIn 1s ease;
+}
+
+header p {
+  font-size: 1.4rem;
+  color: #5d4037;
+}
+
+/* New Task Form Section */
+.new-task-section {
+  background: linear-gradient(135deg, #ffecb3, #fff9c4);
+  border: 2px dashed #fbc02d;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto 30px;
+}
+
+.new-task-section h2 {
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  color: #f57f17;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#new-task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#new-task-form input,
+#new-task-form button {
+  padding: 10px;
+  border: 2px solid #fbc02d;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+}
+
+#new-task-form button {
+  background: #f57f17;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#new-task-form button:hover {
+  background: #e64a19;
+}
+
+/* Board Styling */
+.board {
+  background: url('https://www.transparenttextures.com/patterns/corkboard.png');
+  background-color: #f7f3ea;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Tasks List */
+.tasks-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+/* Task (Sticky Note) Styling */
+.task {
+  width: 250px;
+  min-height: 220px;
+  background: linear-gradient(135deg, #fff176, #ffe082);
+  border: 2px solid #fdd835;
+  border-radius: 10px;
+  padding: 15px;
+  position: relative;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.task:hover {
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Drop-In Animation */
+@keyframes dropIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.drop-in {
+  animation: dropIn 0.6s ease-out;
+}
+
+/* Fade-Out Animation */
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+.fade-out {
+  animation: fadeOut 0.5s ease forwards;
+}
+
+/* Header Bounce Animation */
+@keyframes bounceIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* Task Content Styling */
+.task-content {
+  font-family: 'Roboto', sans-serif;
+}
+
+.task-title {
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #d32f2f;
+  margin-bottom: 8px;
+}
+
+.task-deadline {
+  font-size: 0.95rem;
+  color: #8d6e63;
+  margin-bottom: 5px;
+}
+
+.task-countdown {
+  font-size: 0.85rem;
+  color: #c62828;
+  margin-bottom: 10px;
+}
+
+/* Button Container */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Button Styling */
+.task .extend-btn, 
+.task .complete-btn {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.task .extend-btn {
+  background: #42a5f5;
+  color: #fff;
+}
+
+.task .extend-btn:hover {
+  background: #1e88e5;
+}
+
+.task .complete-btn {
+  background: #66bb6a;
+  color: #fff;
+}
+
+.task .complete-btn:hover {
+  background: #43a047;
+}
+
+/* Extend Deadline Form */
+.extend-form {
+  margin-top: 8px;
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; max-height: 0; }
+  to { opacity: 1; max-height: 100px; }
+}
+
+.extend-form input[type="datetime-local"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.extend-form .submit-extend-btn {
+  background: #42a5f5;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.extend-form .submit-extend-btn:hover {
+  background: #1e88e5;
+}
+
+/* Pin Effect */
+.task::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle, #e57373 0%, #d32f2f 70%);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tasks-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  header h1 {
+    font-size: 2.8rem;
+  }
+}
+
